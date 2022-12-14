@@ -93,7 +93,6 @@ public class Interpreter {
                     int newIdx = closeToOpen.get(idx);
                     parser.setIndex(newIdx);
                 }
-                // System.err.println("New index: " + parser.getIndex());
                 break;
             case EOF: // never happens
         }

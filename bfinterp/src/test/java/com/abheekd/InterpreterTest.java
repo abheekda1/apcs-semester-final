@@ -10,13 +10,13 @@ import org.junit.Test;
 public class InterpreterTest {
     @Test
     public void helloWorld() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(baos));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
 
         Interpreter interpreter = new Interpreter(
                 ">++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<++.------------.>++++++[<+++++++++>-]<+.<.+++.------.--------.>>>++++[<++++++++>-]<+.");
 
         interpreter.run();
-        assertTrue(baos.toString().equals("Hello, World!"));
+        assertTrue(out.toString().equals("Hello, World!"));
     }
 }
