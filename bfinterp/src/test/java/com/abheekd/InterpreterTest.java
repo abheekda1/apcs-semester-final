@@ -7,6 +7,8 @@ import java.io.PrintStream;
 
 import org.junit.Test;
 
+// you can run this to test the interpreter
+// once you're done
 public class InterpreterTest {
     @Test
     public void helloWorld() {

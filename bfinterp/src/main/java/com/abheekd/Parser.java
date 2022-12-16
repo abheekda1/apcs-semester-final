@@ -1,8 +1,7 @@
 package com.abheekd;
 
-import java.util.ArrayList;
-
 public class Parser {
+    // an enum is just a way to have a defined set of possible values
     public enum Command {
         POINTER_RIGHT,
         POINTER_LEFT,
@@ -19,17 +18,13 @@ public class Parser {
     private String sourceStripped;
     private int tokenPointer = 0;
 
-    private ArrayList<Integer> openBracketStack = new ArrayList<Integer>(); // innermost open bracket will be last element
-    private ArrayList<Integer> closeBracketStack = new ArrayList<Integer>(); // innermost close bracket will be first
-
-
     public Parser(String source) {
-        this.source = source;
-        this.sourceStripped = "";
-        stripSource();
-        fillStacks();
+        // set the source
+
+        // use the stripSource function to set the sourceStripped property
     }
 
+    // function to strip away all unecessary characters for source
     private void stripSource() {
         for (char c : source.toCharArray()) {
             if (new String("><+-.,[]").indexOf(c) != -1)
@@ -37,26 +32,8 @@ public class Parser {
         }
     }
 
-    private void fillStacks() {
-        for (int i = 0; i < sourceStripped.length(); i++) {
-            char c = sourceStripped.charAt(i);
-            if (c == '[')
-                openBracketStack.add(i);
-            else if (c == ']')
-                closeBracketStack.add(i);
-        }
-    }
-
     public String getSourceStripped() {
         return sourceStripped;
-    }
-
-    public ArrayList<Integer> getOpenBracketStack() {
-        return openBracketStack;
-    }
-
-    public ArrayList<Integer> getCloseBracketStack() {
-        return closeBracketStack;
     }
 
     public int getIndex() {
@@ -68,8 +45,10 @@ public class Parser {
     }
 
     public Command getNextToken() {
-        if (tokenPointer >= sourceStripped.length()) return Command.EOF;
-        Command ret = Command.EOF;
+        // return EOF if it's past the last token:
+
+        // create a ret var of type Command:
+
         switch (sourceStripped.charAt(tokenPointer)) {
             case '>':
                 ret = Command.POINTER_RIGHT;
@@ -96,7 +75,10 @@ public class Parser {
                 ret = Command.CLOSE_BRACKET;
                 break;
         }
-        tokenPointer++;
+
+        // increment the tokenPointer to move to the next token when the function is
+        // called again
+
         return ret;
     }
 }
