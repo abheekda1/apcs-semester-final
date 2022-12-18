@@ -55,6 +55,8 @@ public class Interpreter {
 
     }
 
+    // this function takes the command and the current character index in case
+    // you would like to use it
     private void handleCommand(Parser.Command command, int idx) {
         switch (command) {
             case POINTER_RIGHT:
