@@ -14,8 +14,8 @@ public class Parser {
         EOF
     }
 
-    private String source;
-    private String sourceStripped;
+    private String source = "";
+    private String sourceStripped = "";
     private int tokenPointer = 0;
 
     public Parser(String source) {
