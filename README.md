@@ -43,3 +43,7 @@ Begin by filling in the indicated code for `Parser.java`, with the constructor a
 
 ### Step 2 (interpreting):
 The interpreter is where the magic really happens. It's the part that actually understands what the parser is reading and correspondingly executes what needs to be executed. Define the properties listed, such as the memory cells and the parser that will be utilized to go through the source brainf*ck. Make sure to initialize the parser that will be stored as a property in the constructor. Then, fill in the `run` function, which loops through each token until `EOF` (end-of-file) and calls `handleToken` on it, which checks what kind of command it is and runs a different segment of code. Finally, fill in all of these segments of code, utilizing getters and setters for the parser if you need to change the index.
+
+Tests have been included to test incremental and final progress:  
+![Testing Demo](https://user-images.githubusercontent.com/67982792/208330243-a8d0f84c-efb4-492c-a918-cea51f13997b.gif)
+
