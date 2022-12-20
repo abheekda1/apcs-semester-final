@@ -19,15 +19,10 @@ public class Parser {
     private String sourceStripped;
     private int tokenPointer = 0;
 
-    private ArrayList<Integer> openBracketStack = new ArrayList<Integer>(); // innermost open bracket will be last element
-    private ArrayList<Integer> closeBracketStack = new ArrayList<Integer>(); // innermost close bracket will be first
-
-
     public Parser(String source) {
         this.source = source;
         this.sourceStripped = "";
         stripSource();
-        fillStacks();
     }
 
     private void stripSource() {
@@ -37,26 +32,8 @@ public class Parser {
         }
     }
 
-    private void fillStacks() {
-        for (int i = 0; i < sourceStripped.length(); i++) {
-            char c = sourceStripped.charAt(i);
-            if (c == '[')
-                openBracketStack.add(i);
-            else if (c == ']')
-                closeBracketStack.add(i);
-        }
-    }
-
     public String getSourceStripped() {
         return sourceStripped;
-    }
-
-    public ArrayList<Integer> getOpenBracketStack() {
-        return openBracketStack;
-    }
-
-    public ArrayList<Integer> getCloseBracketStack() {
-        return closeBracketStack;
     }
 
     public int getIndex() {
